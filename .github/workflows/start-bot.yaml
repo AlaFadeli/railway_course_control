@@ -1,0 +1,18 @@
+name: Start Railway Bot
+
+on:
+  schedule:
+    - cron: '0 7 * * *'  # 08:00 Algeria time = 07:00 UTC
+  workflow_dispatch:
+
+jobs:
+  start:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Start the bot
+        run: |
+          curl -X POST \
+            -H "Authorization: Bearer ${{ secrets.RAILWAY_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            https://backboard.railway.app/graphql \
+            -d '{"query":"mutation { deploymentCreate(input: {projectId: \"${{ secrets.PROJECT_ID }}\"}) { deployment { id } } }"}'
