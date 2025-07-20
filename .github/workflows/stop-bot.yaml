@@ -15,5 +15,5 @@ jobs:
             -H "Authorization: Bearer ${{ secrets.RAILWAY_TOKEN }}" \
             -H "Content-Type: application/json" \
             https://backboard.railway.app/graphql \
-            -d '{"query":"mutation { deploymentCancel(input: {projectId: \"${{ secrets.PROJECT_ID }}\"}) { id } }"}'
+            -d '{"query":"mutation { environmentPause(input: {projectId: \"${{ secrets.PROJECT_ID }}\"}) { id } }"}'
 
