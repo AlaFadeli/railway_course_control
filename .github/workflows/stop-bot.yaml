@@ -15,5 +15,5 @@ jobs:
             -H "Authorization: Bearer ${{ secrets.RAILWAY_TOKEN }}" \
             -H "Content-Type: application/json" \
             https://backboard.railway.app/graphql \
-            -d '{"query":"mutation { environmentPause(input: {projectId: \"${{ secrets.PROJECT_ID }}\"}) { id } }"}'
+            -d '{"query":"mutation { environmentPause(input: {environementId: \"8b19d02b-d1ff-4966-9afe-41e681a64648\"}} {environement {id name}}}"}'
 
